@@ -1,0 +1,82 @@
+/* ── Navbar ── */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  height: 64px;
+  background-color: #3b2108;      /* dark brown */
+  border-bottom: 2px solid #c9a882; /* beige/tan bottom line */
+}
+
+/* ── Logo ── */
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #f5ede0;                 /* light beige */
+  text-decoration: none;
+}
+
+/* ── "Ease" in logo ── */
+.logo span {
+  color: #c9a882;                 /* tan/beige accent */
+}
+
+/* ── Links wrapper ── */
+.links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ── Nav links ── */
+.link {
+  color: #d9bfa0;                 /* light tan */
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* ── Link hover ── */
+.link:hover {
+  background-color: #4e2d0e;      /* slightly lighter dark brown */
+  color: #f5ede0;                 /* bright beige */
+}
+
+/* ── Active link ── */
+.link.active {
+  color: #c9a882;                 /* tan to show current page */
+  font-weight: 500;
+}
+
+/* ── Cart button ── */
+.cartLink {
+  color: #3b2108;                 /* dark brown text */
+  text-decoration: none;
+  background-color: #c9a882;      /* beige/tan button */
+  padding: 8px 18px;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: background-color 0.2s ease;
+}
+
+/* ── Cart button hover ── */
+.cartLink:hover {
+  background-color: #e0c9a6;      /* lighter beige on hover */
+}
+
+/* ── Cart badge ── */
+.badge {
+  background-color: #3b2108;      /* dark brown circle */
+  color: #f5ede0;                 /* beige number */
+  font-size: 0.7rem;
+  font-weight: bold;
+  padding: 2px 7px;
+  border-radius: 999px;
+}

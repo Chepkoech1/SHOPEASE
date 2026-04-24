@@ -1,0 +1,413 @@
+/* ── Page background ── */
+.page {
+  background-color: #f5ede0;      /* warm beige background */
+  min-height: 100vh;              /* fills full screen height */
+  padding: 32px 24px;             /* space around the content */
+}
+
+/* ── Centers and limits the width ── */
+.container {
+  max-width: 1000px;              /* stops it getting too wide */
+  margin: 0 auto;                 /* centers it horizontally */
+  display: grid;
+  grid-template-columns: 1fr 320px; /* cart list | summary sidebar */
+  gap: 24px;                      /* space between the two columns */
+  align-items: start;             /* both columns start at the top */
+}
+
+/* ── Left column ── */
+.left {
+  display: flex;
+  flex-direction: column;         /* stacks children top to bottom */
+  gap: 16px;
+}
+
+/* ── Page title row ── */
+.header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* ── "Your Cart" heading ── */
+.title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #3b2108;                 /* dark brown */
+  margin: 0;
+}
+
+/* ── Item count pill e.g. "3 items" ── */
+.countPill {
+  background-color: #c9a882;      /* tan */
+  color: #3b2108;                 /* dark brown text */
+  font-size: 0.78rem;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: 999px;           /* pill shape */
+}
+
+/* ── Free shipping progress bar wrapper ── */
+.shippingBar {
+  background-color: #ecdfc9;      /* slightly darker beige */
+  border: 1px solid #c9a882;      /* tan border */
+  border-radius: 10px;
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* ── Text above the progress bar ── */
+.shippingText {
+  font-size: 0.85rem;
+  color: #5a3a1a;                 /* medium brown */
+}
+
+/* ── The grey track behind the progress bar ── */
+.progressTrack {
+  height: 6px;
+  background-color: #d9bfa0;      /* light tan track */
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+/* ── The filled part of the progress bar ── */
+.progressFill {
+  height: 100%;
+  background-color: #6b3f1f;      /* dark brown fill */
+  border-radius: 999px;
+  transition: width 0.4s ease;    /* animates as total changes */
+}
+
+/* ── Shows when free shipping is unlocked ── */
+.shippingUnlocked {
+  background-color: #e0edd8;      /* soft green tint */
+  border: 1px solid #a3c28a;
+  border-radius: 10px;
+  padding: 10px 16px;
+  font-size: 0.85rem;
+  color: #2d5a1b;                 /* dark green text */
+}
+
+/* ── The white card that wraps all cart items ── */
+.list {
+  list-style: none;               /* removes bullet points */
+  margin: 0;
+  padding: 0;
+  background-color: #fdf6ec;      /* very light beige */
+  border: 1px solid #c9a882;      /* tan border */
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* ── Single cart item row ── */
+.item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  border-bottom: 1px solid #e0cdb0; /* tan divider between items */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* ── Last item has no bottom border ── */
+.item:last-child {
+  border-bottom: none;
+}
+
+/* ── Slight beige tint on hover ── */
+.item:hover {
+  background-color: #f5ede0;
+}
+
+/* ── Slides item out when removing ── */
+.removing {
+  opacity: 0;
+  transform: translateX(20px);    /* slides to the right */
+  pointer-events: none;           /* disables clicks while animating */
+}
+
+/* ── Product image box ── */
+.itemImg {
+  width: 68px;
+  height: 68px;
+  border-radius: 8px;
+  background-color: #ecdfc9;      /* beige placeholder bg */
+  flex-shrink: 0;                 /* stops it from shrinking */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Actual image inside the box ── */
+.itemImgSrc {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ── Emoji fallback if no image ── */
+.itemEmoji {
+  font-size: 2rem;
+}
+
+/* ── Text info next to image ── */
+.itemInfo {
+  flex: 1;                        /* takes up remaining space */
+  min-width: 0;                   /* allows text truncation to work */
+}
+
+/* ── Small category text e.g. "Kitchen" ── */
+.itemCategory {
+  font-size: 0.68rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #8b6343;                 /* medium brown */
+  display: block;
+  margin-bottom: 2px;
+}
+
+/* ── Product name ── */
+.itemName {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #3b2108;                 /* dark brown */
+  margin: 0 0 4px;
+  white-space: nowrap;            /* keeps on one line */
+  overflow: hidden;
+  text-overflow: ellipsis;        /* adds "..." if too long */
+}
+
+/* ── Item price ── */
+.itemPrice {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #6b3f1f;                 /* rich brown */
+  margin: 0;
+}
+
+/* ── Qty text e.g. "$89 × 2" ── */
+.itemQty {
+  font-size: 0.75rem;
+  color: #8b6343;
+  margin: 2px 0 0;
+}
+
+/* ── Remove button ── */
+.removeBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px 8px;
+  border-radius: 6px;
+  color: #8b6343;                 /* brown */
+  transition: color 0.2s ease, background-color 0.2s ease;
+  flex-shrink: 0;
+}
+
+/* ── Remove button hover ── */
+.removeBtn:hover {
+  color: #8b0000;                 /* dark red */
+  background-color: #f5d5d5;      /* soft red background */
+}
+
+/* ── X icon inside remove button ── */
+.removeBtnIcon {
+  font-size: 0.75rem;
+}
+
+/* ── "Remove" label below X ── */
+.removeBtnLabel {
+  font-size: 0.62rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ── "← Continue Shopping" link ── */
+.continueShopping {
+  font-size: 0.85rem;
+  color: #8b6343;
+  text-decoration: none;
+  align-self: flex-start;         /* hugs the left side */
+  transition: color 0.2s ease;
+}
+
+.continueShopping:hover {
+  color: #3b2108;                 /* darker brown on hover */
+}
+
+/* ── Empty cart state ── */
+.empty {
+  background-color: #fdf6ec;
+  border: 1px solid #c9a882;
+  border-radius: 12px;
+  padding: 48px 24px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.emptyIcon {
+  font-size: 3.5rem;
+  margin-bottom: 8px;
+}
+
+.emptyTitle {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #3b2108;
+  margin: 0;
+}
+
+.emptyText {
+  font-size: 0.88rem;
+  color: #8b6343;
+  margin: 0 0 12px;
+}
+
+/* ── "Start Shopping" button in empty state ── */
+.shopBtn {
+  display: inline-block;
+  background-color: #6b3f1f;      /* dark brown */
+  color: #f5ede0;                 /* beige text */
+  text-decoration: none;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.shopBtn:hover {
+  background-color: #8b5230;      /* lighter brown */
+}
+
+/* ────────────────────────────────
+   ORDER SUMMARY SIDEBAR (right)
+──────────────────────────────── */
+
+.summary {
+  background-color: #fdf6ec;      /* light beige */
+  border: 1px solid #c9a882;      /* tan border */
+  border-radius: 12px;
+  padding: 20px;
+  position: sticky;               /* stays visible as you scroll */
+  top: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* ── "Order Summary" heading ── */
+.summaryTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #3b2108;
+  margin: 0 0 16px;
+}
+
+/* ── Lines like "Subtotal", "Shipping" ── */
+.summaryLines {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #c9a882;
+  margin-bottom: 12px;
+}
+
+/* ── Each line in the summary ── */
+.summaryLine {
+  display: flex;
+  justify-content: space-between; /* label left, value right */
+  font-size: 0.88rem;
+  color: #5a3a1a;
+}
+
+/* ── "Free" shipping text ── */
+.free {
+  color: #2d5a1b;                 /* green to highlight free */
+  font-weight: 500;
+}
+
+/* ── Total row at the bottom ── */
+.totalRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #3b2108;
+  margin-bottom: 16px;
+}
+
+/* ── Checkout button ── */
+.checkoutBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background-color: #6b3f1f;      /* dark brown */
+  color: #f5ede0;                 /* beige text */
+  text-decoration: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  margin-bottom: 12px;
+}
+
+/* ── Checkout button hover ── */
+.checkoutBtn:hover {
+  background-color: #8b5230;      /* lighter brown */
+  transform: translateY(-1px);    /* slight lift */
+}
+
+/* ── Trust badges row ── */
+.trustRow {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.trustItem {
+  font-size: 0.75rem;
+  color: #8b6343;
+}
+
+/* ── Mobile: stack columns vertically ── */
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr;   /* single column on mobile */
+  }
+
+  .summary {
+    position: static;             /* no longer sticky on mobile */
+  }
+}
+
+/* ── Very small screens ── */
+@media (max-width: 480px) {
+  .page {
+    padding: 20px 16px;
+  }
+
+  .title {
+    font-size: 1.4rem;
+  }
+
+  .itemImg {
+    width: 54px;
+    height: 54px;
+  }
+}

@@ -1,0 +1,115 @@
+/* ── The card box itself ── */
+.card {
+  background-color: #f5ede0;      /* warm beige background */
+  border: 1px solid #c9a882;      /* medium brown border */
+  border-radius: 12px;
+  overflow: hidden;
+  width: 100%;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* ── Card hover ── */
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(101, 67, 33, 0.15); /* brown tinted shadow */
+}
+
+/* ── Image ── */
+.image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+/* ── Body ── */
+.body {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* ── Category label ── */
+.category {
+  font-size: 0.72rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #8b6343;                 /* medium brown */
+}
+
+/* ── Product name ── */
+.name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #3b2108;                 /* dark brown */
+  margin: 0;
+  line-height: 1.3;
+}
+
+/* ── Description ── */
+.description {
+  font-size: 0.82rem;
+  color: #7a5c3a;                 /* warm mid brown */
+  line-height: 1.5;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ── Footer row ── */
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 4px;
+}
+
+/* ── Price ── */
+.price {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #3b2108;                 /* dark brown */
+}
+
+/* ── Stars ── */
+.rating {
+  font-size: 0.8rem;
+  color: #b8860b;                 /* dark golden brown */
+}
+
+/* ── Review count ── */
+.reviews {
+  font-size: 0.78rem;
+  color: #8b6343;                 /* medium brown */
+  margin-left: 4px;
+}
+
+/* ── Button ── */
+.button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 4px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #6b3f1f;      /* rich dark brown */
+  color: #f5ede0;                 /* beige text */
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+/* ── Button hover ── */
+.button:hover {
+  background-color: #8b5230;      /* lighter brown on hover */
+}
+
+/* ── Button added state ── */
+.button.added {
+  background-color: #4a6741;      /* muted green for confirmation */
+  cursor: default;
+}
